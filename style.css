@@ -1,4 +1,45 @@
 header
 {
+    position: static;
     background-color: dodgerblue;
+    padding: 10px;
+}
+
+
+header > h3 
+{
+    color: white;
+}
+
+*
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
+
+.form-choices
+{
+    position: static;
+    margin-top: 10px;
+    background-color: blanchedalmond;
+    height: auto;
+    padding: 10px;
+    
+}
+
+#search_text
+{
+    display: inline-flex;
+    font-size: medium; 
+
+}
+
+#search_selector
+{
+    font-size: medium;
+    width: 100px;
+}
+
+.form-result
+{
+    position: static;
 }
