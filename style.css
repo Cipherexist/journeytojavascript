@@ -1,3 +1,9 @@
+body
+{
+    height: auto;
+    padding-bottom: 30px;
+}
+
 header
 {
     position: static;
@@ -46,12 +52,30 @@ article
     grid-gap: 30px;
 }
 
-.box 
+.content > div
 {
     height: 300px;
     width: 300px;
     border-style: inset;
+    display: static;
+    padding-left: 60px;
+    padding-right: 60px;
     
+    
+}
+
+.content > div > img 
+{
+    height: 200px;
+    width: 100%;
+    display: block;
+    position: static;
+}
+.content > div > p 
+{
+    position: static;
+    width: 100%;
+    text-align: center;
 }
 
 #search_text
