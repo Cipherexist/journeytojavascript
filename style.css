@@ -40,10 +40,26 @@ article
     justify-content: space-between;
     margin-top: 10px;
     flex-wrap: wrap;
-    width: 400px;
-    background-color: blanchedalmond;
+    width: 600px;
+   /* background-color: blanchedalmond; */ 
     padding: 10px;
 }
+
+.form-choices > input 
+{
+   font-size: large;
+    height: 30px;
+    width: 400px;
+    text-align: center;
+    background-color: yellow;
+}
+
+.form-choices > select
+{
+    width: 500px;
+    height: 40px;
+}
+
 
 .content 
 {
@@ -54,10 +70,11 @@ article
 
 .content > div
 {
-    height: 300px;
-    width: 300px;
+    height: auto;
+    width: auto;
     border-style: inset;
-    display: static;
+    display: flex;
+    flex-direction: column;
     padding-left: 60px;
     padding-right: 60px;
     
