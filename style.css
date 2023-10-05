@@ -66,8 +66,9 @@ article
 .content 
 {
     display: grid;
-    grid-template-columns: 30% 30% 30%;
+    grid-template-columns: auto auto auto;
     grid-gap: 30px;
+    cursor: pointer;
 }
 
 .content > div
