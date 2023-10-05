@@ -67,13 +67,14 @@
         // newpokebox.appendChild(newimage)
         // newpokebox.appendChild(newname)
          
-   
+        
         data.results.forEach(pokemon => {
              x= x+ 1; 
         //      console.log(pokemon.name)
          //     console.log("https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg")
              const content = document.getElementById("pokebox")
              const newpokebox = document.createElement("div")
+             let pokejsonattributes = ""
              content.appendChild(newpokebox)
              const newimage  = document.createElement("img") 
              const newname = document.createElement("p") 
@@ -81,7 +82,34 @@
              newname.textContent = pokemon.name
              newpokebox.appendChild(newimage)
              newpokebox.appendChild(newname)
-            });
+           
+            //GETTING ATTRIBUTES
+            // getPokeAttributes(pokemon.name, pokemon.url); 
+            // console.log(pokejsonattributes)
+            fetch(pokemon.url).then(function(response)
+            {
+                return response.json();
+            }).then(function(pokeatr)
+            {
+                // return pokemonresult
+            //    console.log(pokename, pokemonresult.types[0].type.name)
+            //   console.log(pokename, pokemonresult.types[1].type.name)
+            //    console.log(pokename, pokemonresult.types)
+
+                    pokeatr.types.forEach(atr => {
+                    console.log(pokemon.name, atr.type.name)
+                  //  const content = document.getElementById("pokebox")
+            
+                });
+
+             //   return pokejsonattributes =  pokemonresult
+
+            }).catch(function(error)
+            {
+                console.log("Error",error)
+            })
+
+        });
 
 
 
@@ -91,18 +119,7 @@
 
 
         
-        
-        // fetch(bulba).then(function(response)
-        // {
-        //     return response.json();
-        // }).then(function(pokemonresult)
-        // {
-        //   //    console.log(pokemonresult)
-        // }).catch(function(error)
-        // {
-        //     console.log("Error","error inside")
-        // })
-    
+
 
      
         
@@ -112,6 +129,35 @@
     })
 
 
+
+    function getPokeAttributes(pokename, pokelink)
+    {  
+       
+        fetch(pokelink).then(function(response)
+        {
+            return response.json();
+        }).then(function(pokemonresult)
+        {
+            // return pokemonresult
+        //    console.log(pokename, pokemonresult.types[0].type.name)
+         //   console.log(pokename, pokemonresult.types[1].type.name)
+        //    console.log(pokename, pokemonresult.types)
+
+            // pokemonresult.types.forEach(atr => {
+            //     console.log(pokename, atr.type.name)
+            //     const content = document.getElementById("pokebox")
+        
+            // });
+
+            return pokejsonattributes =  pokemonresult
+
+        }).catch(function(error)
+        {
+            console.log("Error","error inside")
+        })
+
+      
+    }
 
 
 
