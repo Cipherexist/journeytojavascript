@@ -70,8 +70,8 @@ article
 
 .content > div
 {
-    height: auto;
-    width: auto;
+    height: 300px;
+    width: 200px;
     border-style: inset;
     display: flex;
     flex-direction: column;

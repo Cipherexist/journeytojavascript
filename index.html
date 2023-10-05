@@ -25,7 +25,8 @@
     </nav>
 
     <article>
-        <div class="content">
+        <div id="pokebox" class="content">
+            <!-- 
             <div>
                 <img src="image/pokeball.png" alt="pokeball">
                 <p>COMPLETE NAME</p>
@@ -38,20 +39,77 @@
                 <img src="image/pokeball.png" alt="pokeball">
                 <p>COMPLETE NAME</p>
             </div>   
-            <div>
-                <img src="image/pokeball.png" alt="pokeball">
-                <p>COMPLETE NAME</p>
-                <p>COMPLETE NAME</p>
-            </div>        
-            <div>
-                <img src="image/pokeball.png" alt="pokeball">
-                <p>COMPLETE NAME</p>
-            </div>        
+              -->
         </div>
       
     </article>
 
 
+    <script>
+     //   console.log("DOM", document)
+
+    fetch("https://pokeapi.co/api/v2/pokemon").then(function(response)
+    {
+        return response.json()
+    }).then(function(data)
+    {   
+        let x = 0; 
+        const content = document.getElementById("pokebox")
+        const newpokebox = document.createElement("div")
+        content.appendChild(newpokebox)
+
+        const newimage  = document.createElement("img") 
+        const newname = document.createElement("p") 
+
+        console.log(content)
+        newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ 1 +".svg"
+        newname.textContent = "name"
+        newpokebox.appendChild(newimage)
+        newpokebox.appendChild(newname)
+         
+
+        data.results.forEach(element => {
+            x= x+ 1; 
+        //      console.log(element.name)
+         //     console.log("https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg")
+     
+        });
+
+
+
+        //let bulba = data.results[1].url
+        // console.log(data)
+        // console.log(bulba)
+
+
+        
+        
+        // fetch(bulba).then(function(response)
+        // {
+        //     return response.json();
+        // }).then(function(pokemonresult)
+        // {
+        //   //    console.log(pokemonresult)
+        // }).catch(function(error)
+        // {
+        //     console.log("Error","error inside")
+        // })
+    
+
+     
+        
+    }).catch(function(error)
+    {
+        console.log(error)
+    })
+
+
+
+
+
+
+
+    </script>
 
 
 </body>
