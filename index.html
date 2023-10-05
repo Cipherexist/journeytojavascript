@@ -53,27 +53,35 @@
         return response.json()
     }).then(function(data)
     {   
-        let x = 0; 
-        const content = document.getElementById("pokebox")
-        const newpokebox = document.createElement("div")
-        content.appendChild(newpokebox)
+         let x = 0; 
+        // const content = document.getElementById("pokebox")
+        // const newpokebox = document.createElement("div")
+        // content.appendChild(newpokebox)
 
-        const newimage  = document.createElement("img") 
-        const newname = document.createElement("p") 
+        // const newimage  = document.createElement("img") 
+        // const newname = document.createElement("p") 
 
-        console.log(content)
-        newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ 1 +".svg"
-        newname.textContent = "name"
-        newpokebox.appendChild(newimage)
-        newpokebox.appendChild(newname)
+        // console.log(content)
+        // newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ 1 +".svg"
+        // newname.textContent = "name"
+        // newpokebox.appendChild(newimage)
+        // newpokebox.appendChild(newname)
          
-
-        data.results.forEach(element => {
-            x= x+ 1; 
-        //      console.log(element.name)
+   
+        data.results.forEach(pokemon => {
+             x= x+ 1; 
+        //      console.log(pokemon.name)
          //     console.log("https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg")
-     
-        });
+             const content = document.getElementById("pokebox")
+             const newpokebox = document.createElement("div")
+             content.appendChild(newpokebox)
+             const newimage  = document.createElement("img") 
+             const newname = document.createElement("p") 
+             newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg"
+             newname.textContent = pokemon.name
+             newpokebox.appendChild(newimage)
+             newpokebox.appendChild(newname)
+            });
 
 
 

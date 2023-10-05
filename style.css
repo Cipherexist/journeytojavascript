@@ -70,7 +70,7 @@ article
 
 .content > div
 {
-    height: 300px;
+    height: 250px;
     width: 200px;
     border-style: inset;
     display: flex;
