@@ -48,84 +48,142 @@
     <script>
      //   console.log("DOM", document)
 
-    fetch("https://pokeapi.co/api/v2/pokemon").then(function(response)
+    function showpokemon(searchstring)
     {
-        return response.json()
-    }).then(function(data)
-    {   
-         let x = 0; 
-        // const content = document.getElementById("pokebox")
-        // const newpokebox = document.createElement("div")
-        // content.appendChild(newpokebox)
-
-        // const newimage  = document.createElement("img") 
-        // const newname = document.createElement("p") 
-
-        // console.log(content)
-        // newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ 1 +".svg"
-        // newname.textContent = "name"
-        // newpokebox.appendChild(newimage)
-        // newpokebox.appendChild(newname)
-         
-        
-        data.results.forEach(pokemon => {
-             x= x+ 1; 
-        //      console.log(pokemon.name)
-         //     console.log("https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg")
-             const content = document.getElementById("pokebox")
-             const newpokebox = document.createElement("div")
-             let pokejsonattributes = ""
-             content.appendChild(newpokebox)
-             const newimage  = document.createElement("img") 
-             const newname = document.createElement("p") 
-             newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg"
-             newname.textContent = pokemon.name
-             newpokebox.appendChild(newimage)
-             newpokebox.appendChild(newname)
-           
-            //GETTING ATTRIBUTES
-            // getPokeAttributes(pokemon.name, pokemon.url); 
-            // console.log(pokejsonattributes)
-            fetch(pokemon.url).then(function(response)
+                fetch("https://pokeapi.co/api/v2/pokemon").then(function(response)
             {
-                return response.json();
-            }).then(function(pokeatr)
-            {
-                // return pokemonresult
-            //    console.log(pokename, pokemonresult.types[0].type.name)
-            //   console.log(pokename, pokemonresult.types[1].type.name)
-            //    console.log(pokename, pokemonresult.types)
+                return response.json()
+            }).then(function(data)
+            {   
+                let x = 0; 
+                // const content = document.getElementById("pokebox")
+                // const newpokebox = document.createElement("div")
+                // content.appendChild(newpokebox)
 
-                    pokeatr.types.forEach(atr => {
-                    console.log(pokemon.name, atr.type.name)
-                  //  const content = document.getElementById("pokebox")
-            
+                // const newimage  = document.createElement("img") 
+                // const newname = document.createElement("p") 
+
+                // console.log(content)
+                // newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ 1 +".svg"
+                // newname.textContent = "name"
+                // newpokebox.appendChild(newimage)
+                // newpokebox.appendChild(newname)
+               // document.getElementById("pokebox").empty() 
+                document.getElementById("pokebox").innerHTML = ""
+               const content = document.getElementById("pokebox")
+             
+                data.results.forEach(pokemon => {
+                    x= x+ 1; 
+                //      console.log(pokemon.name)
+                //     console.log("https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg")
+                if(searchstring=="")
+                {
+               
+                    const newpokebox = document.createElement("div")
+                    let pokejsonattributes = ""
+                    content.appendChild(newpokebox)
+                    const newimage  = document.createElement("img") 
+                    const newname = document.createElement("p") 
+                    newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg"
+                    newname.textContent = pokemon.name
+                    newpokebox.appendChild(newimage)
+                    newpokebox.appendChild(newname)
+                
+                    //GETTING ATTRIBUTES
+                    // getPokeAttributes(pokemon.name, pokemon.url); 
+                    // console.log(pokejsonattributes)
+                    fetch(pokemon.url).then(function(response)
+                    {
+                        return response.json();
+                    }).then(function(pokeatr)
+                    {
+                        // return pokemonresult
+                    //    console.log(pokename, pokemonresult.types[0].type.name)
+                    //   console.log(pokename, pokemonresult.types[1].type.name)
+                    //    console.log(pokename, pokemonresult.types)
+                    //    console.log(pokemon.name,pokeatr)
+                        pokeatr.types.forEach(atr => {
+                        //  console.log(pokemon.name, atr.type.name)
+                        //  const content = document.getElementById("pokebox")
+                            const attrbox  = document.createElement("span")
+                            let attrname = atr.type.name.toUpperCase(); 
+                            attrbox.textContent = attrname
+                            
+                        newpokebox.appendChild(attrbox)
+                        });
+
+                    //   return pokejsonattributes =  pokemonresult
+
+                    }).catch(function(error)
+                    {
+                        console.log("Error",error)
+                    })
+                }
+                else 
+                {
+                    if(pokemon.name.toLowerCase().includes(searchstring.toLowerCase()))
+                    {
+                    
+                    const newpokebox = document.createElement("div")
+                    let pokejsonattributes = ""
+                    content.appendChild(newpokebox)
+                    const newimage  = document.createElement("img") 
+                    const newname = document.createElement("p") 
+                    newimage.srcset = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"+ x +".svg"
+                    newname.textContent = pokemon.name
+                    newpokebox.appendChild(newimage)
+                    newpokebox.appendChild(newname)
+                
+                    fetch(pokemon.url).then(function(response)
+                    {
+                        return response.json();
+                    }).then(function(pokeatr)
+                    {
+                       
+                        pokeatr.types.forEach(atr => {
+                   
+                            const attrbox  = document.createElement("span")
+                            let attrname = atr.type.name.toUpperCase(); 
+                            attrbox.textContent = attrname
+                            
+                        newpokebox.appendChild(attrbox)
+                        });
+
+                    }).catch(function(error)
+                    {
+                        console.log("Error",error)
+                    })
+
+                    }
+                  
+                    
+                }
+                  
+
                 });
 
-             //   return pokejsonattributes =  pokemonresult
 
+
+                //let bulba = data.results[1].url
+                // console.log(data)
+                // console.log(bulba)
+                
             }).catch(function(error)
             {
-                console.log("Error",error)
+                console.log(error)
             })
+    }
 
-        });
+    showpokemon("")
+  
 
-
-
-        //let bulba = data.results[1].url
-        // console.log(data)
-        // console.log(bulba)
+    const textsearch = document.getElementById("search_text")
 
 
-        
-
-
-     
-        
-    }).catch(function(error)
+    textsearch.addEventListener("change",function()
     {
-        console.log(error)
+        // console.log("TEXT",textsearch.value)
+        showpokemon(textsearch.value)
     })
 
 
