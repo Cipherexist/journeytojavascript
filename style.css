@@ -87,7 +87,8 @@ article
 
 .content > div:hover 
 { 
-    background-color: yellow;
+    outline-style: groove;
+   outline-color: aqua;
 }
 
 .content > div > img:hover
@@ -126,7 +127,7 @@ article
 #search_selector
 {
     font-size: medium;
-    width: 100px;
+    width: 180px;
 }
 
 .form-result

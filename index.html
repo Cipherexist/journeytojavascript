@@ -18,7 +18,8 @@
            <input type="text" id="search_text" placeholder="Search Pokemon..">
         
             <select id="search_selector">
-                <option value="1">--select--</option>
+                <option value="1">--SELECT TYPE--</option>
+                <option value="1">FIRE</option>
             </select>
         </div>
 
@@ -109,6 +110,42 @@
                             let attrname = atr.type.name.toUpperCase(); 
                             attrbox.textContent = attrname
                             
+                           // console.log("ATTRIBUTE:",attrname)
+                            switch (attrname) {
+                                case "GRASS":
+                                    attrbox.style.backgroundColor = "#A8DF8E";
+                                  
+                                break; 
+                                case "POISON": 
+                                   attrbox.style.backgroundColor = "#836096";
+                                   attrbox.style.color = "#FFFFFF";
+                                break; 
+                                case "FIRE":
+                                attrbox.style.backgroundColor = "#C70039";
+                                attrbox.style.color = "#FFFFFF";
+                                break;
+                                case "FLYING":
+                                attrbox.style.backgroundColor = "#1D5B79";
+                                attrbox.style.color = "#FFFFFF";
+                                break; 
+                                case "WATER":
+                                attrbox.style.backgroundColor = "#78C1F3";
+                                break;  
+                                case "BUG":
+                                attrbox.style.backgroundColor = "#1A5D1A";
+                                attrbox.style.color = "#FFFFFF";
+                                break;
+                                case "NORMAL":
+                                attrbox.style.backgroundColor = "#ECE5C7";
+                                break;  
+                                default:
+                                attrbox.style.backgroundColor = "1AACAC";
+                                break;
+                            }
+
+
+
+
                         newpokebox.appendChild(attrbox)
                         });
 
@@ -145,7 +182,44 @@
                             const attrbox  = document.createElement("span")
                             let attrname = atr.type.name.toUpperCase(); 
                             attrbox.textContent = attrname
+                        
+
+
+                              // console.log("ATTRIBUTE:",attrname)
+                              switch (attrname) {
+                                case "GRASS":
+                                    attrbox.style.backgroundColor = "#A8DF8E";
+                                  
+                                break; 
+                                case "POISON": 
+                                   attrbox.style.backgroundColor = "#836096";
+                                   attrbox.style.color = "#FFFFFF";
+                                break; 
+                                case "FIRE":
+                                attrbox.style.backgroundColor = "#C70039";
+                                attrbox.style.color = "#FFFFFF";
+                                break;
+                                case "FLYING":
+                                attrbox.style.backgroundColor = "#1D5B79";
+                                attrbox.style.color = "#FFFFFF";
+                                break; 
+                                case "WATER":
+                                attrbox.style.backgroundColor = "#78C1F3";
+                                break;  
+                                case "BUG":
+                                attrbox.style.backgroundColor = "#1A5D1A";
+                                attrbox.style.color = "#FFFFFF";
+                                break;
+                                case "NORMAL":
+                                attrbox.style.backgroundColor = "#ECE5C7";
+                                break;  
+                                default:
+                                attrbox.style.backgroundColor = "1AACAC";
+                                break;
+                            }
+
                             
+
                         newpokebox.appendChild(attrbox)
                         });
 
