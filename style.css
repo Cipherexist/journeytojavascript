@@ -12,6 +12,16 @@ header
 }
 
 
+
+.fixedtop
+{
+    position: fixed;
+    display: block;
+    width: 100%;
+
+}
+
+
 header > h3 
 {
     color: white;
@@ -28,12 +38,13 @@ nav
 {
     display: flex;
     justify-content: center;
+    z-index: 2;
+    background-color: azure;
 }
 article
 {
    display: flex; 
    justify-content: center;
-   margin-top: 20px;
 }
 
 .form-choices
@@ -69,6 +80,7 @@ article
     grid-template-columns: auto auto auto;
     grid-gap: 30px;
     cursor: pointer;
+    margin-top: 250px;
 }
 
 .content > div
