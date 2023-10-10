@@ -54,7 +54,7 @@ article
     margin-top: 10px;
     flex-wrap: wrap;
     width: 600px;
-   /* background-color: blanchedalmond; */ 
+   background-color: blanchedalmond; 
     padding: 10px;
 }
 
@@ -77,11 +77,40 @@ article
 .content 
 {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-gap: 30px;
     cursor: pointer;
     margin-top: 250px;
 }
+
+@media only screen and (max-width: 1200px) 
+{
+    .content 
+    {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        grid-gap: 30px;
+        cursor: pointer;
+        margin-top: 250px;
+    }
+
+}
+
+@media only screen and (max-width: 800px) 
+{
+    .content 
+    {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 30px;
+        cursor: pointer;
+        margin-top: 250px;
+    }
+
+}
+
+
+
 
 .content > div
 {
